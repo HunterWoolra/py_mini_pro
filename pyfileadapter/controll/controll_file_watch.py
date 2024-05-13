@@ -2,6 +2,7 @@ from watchdog.events import FileSystemEventHandler
 import os
 import datetime
 from watchdog.observers import Observer
+from pyfileadapter.dbconnect.file_metadata import append_data
 
 # FileSystemEventHandler 클래스를 상속받고 해당 클래스의 파일감지 메서드들을 오버라이딩
 class FileWatchControll(FileSystemEventHandler):
@@ -14,7 +15,9 @@ class FileWatchControll(FileSystemEventHandler):
         modified_time = datetime.datetime.fromtimestamp(modified_time_unix)
         print(f'modified time : {modified_time}')
 
-        return file_path, modified_time
+        append_data(file_path, modified_time)
+        #
+        # return file_path, modified_time
 
     # 파일 생성 이벤트 감지
     def on_created(self, event):
@@ -25,8 +28,7 @@ class FileWatchControll(FileSystemEventHandler):
         modified_time = datetime.datetime.fromtimestamp(modified_time_unix)
         print(f'modified time : {modified_time}')
 
-        return file_path, modified_time
-
+        append_data(file_path, modified_time)
 
 
 # main 에서 호출
@@ -35,6 +37,7 @@ def start_monitoring(dir_path):
     observer = Observer()
     observer.schedule(event_handler, path=dir_path, recursive=True)
     observer.start()
+
     try:
         while True:
             pass
