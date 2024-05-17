@@ -7,7 +7,7 @@ def append_data(file_path, modified_time):
     connect_list = []
 
     # 접속정보 파일 위치
-    f = open("C:\\Users\\pin\\Desktop\\DataSet\\pyminipro\\postgresql.txt")
+    f = open("/Users/mr_pin/Documents/myminipro/postgresql.txt")
     # 읽어서 리스트로 변환
     while True:
         line = f.readline()

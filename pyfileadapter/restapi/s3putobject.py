@@ -5,7 +5,7 @@ def put_object(local_path, target_path):
     connect_list = []
 
     # local에 저장한 접속 정보 파일 위치
-    f = open("C:\\Users\\pin\\Desktop\\DataSet\\pyminipro\\s3key.txt")
+    f = open("/Users/mr_pin/Documents/myminipro/s3key.txt")
     # 읽어서 리스트로 변환
     while True:
         line = f.readline()

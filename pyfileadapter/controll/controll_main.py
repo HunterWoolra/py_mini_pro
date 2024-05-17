@@ -4,8 +4,8 @@ from multiprocessing import Process
 
 if __name__ == '__main__':
 
-    dir_path = "C:\\Users\\pin\\Desktop\\DataSet\\pyminipro"
-    file_name = "temp_text.txt"
+    dir_path = "/Users/mr_pin/Documents/myminipro"
+    # file_name = "temp_text.txt"
 
     # 파일 감지기를 별도의 프로세스로 실행
     watch_process = Process(target=start_monitoring, args=(dir_path,))
